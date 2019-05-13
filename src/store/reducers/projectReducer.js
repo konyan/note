@@ -1,3 +1,5 @@
+import { ADD_PROJECT } from "../type";
+
 const initState = {
   projects: [
     { id: 1, title: "Nyan Lin Tun 1", content: "bla bla bla" },
@@ -9,9 +11,9 @@ const initState = {
 
 const projectReducer = (state = initState, action) => {
   switch (action.type) {
-    // case value:
-    //   break;
-
+    case ADD_PROJECT:
+      console.log("CREATE", action.project);
+      return null;
     default:
       return state;
   }
