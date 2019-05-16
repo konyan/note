@@ -1,4 +1,4 @@
-import { SIGN_IN_USER, SIGN_IN_USER_ERROR } from "../type";
+import { SIGN_IN_USER, SIGN_IN_USER_ERROR, SIGN_OUT } from "../type";
 
 export const signIn = crediential => {
   return (dispatch, getState, { getFirebase }) => {
@@ -13,5 +13,17 @@ export const signIn = crediential => {
         });
       })
       .catch(err => dispatch({ type: SIGN_IN_USER_ERROR, err }));
+  };
+};
+
+export const signOut = () => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+
+    firebase
+      .auth()
+      .signOut()
+      .then(() => dispatch({ type: SIGN_OUT }))
+      .catch();
   };
 };
