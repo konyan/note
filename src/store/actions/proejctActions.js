@@ -3,13 +3,16 @@ import { ADD_PROJECT, ADD_PROJECT_ERROR } from "../type";
 export const createProject = project => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     const fireStore = getFirestore();
+    const userId = getState().firebase.auth.uid;
+    const profile = getState().firebase.profile;
+
     fireStore
       .collection("projects")
       .add({
         ...project,
-        authFirstName: "Nyan",
-        authorId: 123456,
-        authorLastName: "Lin",
+        authorFirstName: profile.firstName,
+        authorId: userId,
+        authorLastName: profile.lastName,
         createdAt: new Date()
       })
       .then(() => {

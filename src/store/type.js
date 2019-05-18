@@ -7,3 +7,6 @@ export const SIGN_IN_USER = "SIGN_IN_USER";
 export const SIGN_IN_USER_ERROR = "SIGN_IN_USER_ERROR";
 
 export const SIGN_OUT = "SIGN_OUT";
+
+export const SING_UP_SUCCESS = "SING_UP_SUCCESS";
+export const SING_UP_SUCCESS_ERROR = "SING_UP_SUCCESS_ERROR";

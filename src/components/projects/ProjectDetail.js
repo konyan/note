@@ -19,7 +19,7 @@ const ProjectDetail = ({ project, auth }) => {
           </div>
           <div className="card-action grey lighten-4 grey-text">
             <div>
-              Posted by {project.authorFistName} {project.authorLastName}{" "}
+              Posted by {project.authorFirstName} {project.authorLastName}
             </div>
             <div>2nd September, 2am</div>
           </div>
