@@ -19,13 +19,31 @@ exports.projectCreated = functions.firestore
       time: admin.firestore.FieldValue.serverTimestamp()
     };
 
-    return createNotificaiton(notificationObject);
+    return createNotification(notificationObject);
   });
 
-const createNotificaiton = notiObject => {
+const createNotification = notiObject => {
   return admin
     .firestore()
     .collection("notifications")
     .add(notiObject)
     .then(doc => console.log("Noti Added", doc));
 };
+
+exports.userJoined = functions.auth.user().onCreate(user => {
+  return admin
+    .firestore()
+    .collection("users")
+    .doc(user.uid)
+    .get()
+    .then(doc => {
+      const newUser = doc.data();
+      const notification = {
+        content: "Joined the party",
+        user: `${newUser.firstName} ${newUser.lastName}`,
+        time: admin.firestore.FieldValue.serverTimestamp()
+      };
+
+      return createNotification(notification);
+    });
+});
