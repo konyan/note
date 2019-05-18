@@ -1,7 +1,14 @@
 import { ADD_PROJECT, ADD_PROJECT_ERROR } from "../type";
 
 const initState = {
-  projects: [{ id: 1, title: "Nyan Lin Tun 1", content: "bla bla bla" }]
+  projects: [
+    // {
+    //   id: 1,
+    //   title: "Nyan Lin Tun 1",
+    //   content: "bla bla bla",
+    //   createdAt: "May 17, 2019 at 11:02:38 PM"
+    // }
+  ]
 };
 
 const projectReducer = (state = initState, action) => {
